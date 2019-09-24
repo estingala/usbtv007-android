@@ -1,8 +1,17 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.1'
+    }
+}
+
 apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.arksine.usbtvsample1"
@@ -20,27 +29,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    splits {
-        abi {
-            enable true
-            reset()
-
-            include "armeabi-v7a", "arm64-v8a", "x86", "x86-64"
-
-            universalApk true
-        }
-    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:support-v4:26.+'
-    testCompile 'junit:junit:4.12'
-    compile 'com.jakewharton.timber:timber:4.5.1'
-    compile project(':libusbtv')
+    implementation project(':libusbtv')
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
 }

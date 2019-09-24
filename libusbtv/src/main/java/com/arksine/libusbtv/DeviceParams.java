@@ -1,7 +1,7 @@
 package com.arksine.libusbtv;
 
 import android.hardware.usb.UsbDevice;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 
 /**
